@@ -38,6 +38,7 @@ const HandleSignUp=async(e)=>{
        } catch (error) {
         
        }
+       setLoading(false)
 
 }
  

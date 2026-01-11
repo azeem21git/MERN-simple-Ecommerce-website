@@ -10,7 +10,7 @@ app.use(express.json())
 
 
 app.post('/api/register',async(req,res)=>{
-   const {username,email,passwod}=req.body
+   const {username,email,password}=req.body
    
    if(!username || !email || !password)
    {
@@ -23,16 +23,17 @@ app.post('/api/register',async(req,res)=>{
    }
     
    const salt =await bcrypt.genSalt(10)
-   const hashedPassword = await bcrypt.hash(passwod,salt)
+   const hashedPassword = await bcrypt.hash(password,salt)
    
 
    const newUser =new User({
-    name,
+    username,
     email,
     password:hashedPassword
    })
 
    await newUser.save()
+   res.status(201).json({ message: "Success" })
 })
 
 
