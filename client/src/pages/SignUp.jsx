@@ -1,10 +1,12 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import {Link, Navigate} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const SignUp = () => {
- 
+ const navigate =useNavigate()
 const [formData ,setFormData] = useState({username:"",email:"",password:"",confirmPassword:""})
 const [loading ,setLoading]=useState(false)
 
@@ -24,14 +26,14 @@ const HandleSignUp=async(e)=>{
        setLoading(true)
        try {
          const res=await axios.post('http://localhost:3000/api/register',{
-          name:formData.username,
+          username:formData.username,
           email:formData.email,
           password:formData.password
          })
          if(res.status ===201)
          {
           alert("Registration success")
-          Navigate('/login')
+          navigate('/login')
          }
           
 
@@ -43,9 +45,7 @@ const HandleSignUp=async(e)=>{
 }
  
 
-  useEffect(()=>{
 
-  },[])
  
 
 

@@ -10,6 +10,7 @@ app.use(express.json())
 
 
 app.post('/api/register',async(req,res)=>{
+    console.log("React-ல் இருந்து வந்த டேட்டா:", req.body);
    const {username,email,password}=req.body
    
    if(!username || !email || !password)
@@ -32,12 +33,15 @@ app.post('/api/register',async(req,res)=>{
     password:hashedPassword
    })
 
-   await newUser.save()
+  console.log("🚀 டேட்டாபேஸில் டேட்டா சேமிக்கப்பட்டுவிட்டது!"); // 👈 இந்த வரி வருகிறதா என்று பாருங்கள்
    res.status(201).json({ message: "Success" })
 })
 
 
-mongoose.connect('mongodb://localhost:27017/LogReg',)
+
+mongoose.connect('mongodb://127.0.0.1:27017/LogReg')
+  .then(() => console.log("✅ MongoDB Connected Successfully!"))
+  .catch((err) => console.log("❌ MongoDB Connection Error:", err));
 
 
 app.listen(3000,()=>{
