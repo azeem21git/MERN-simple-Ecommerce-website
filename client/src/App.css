@@ -1,15 +1,13 @@
-
-/* Home */
-#home{
-    background: rgb(0,101,219);
-    background: linear-gradient(90deg,rgb(0,101,219) 50%,rgba(0,212,255,1) 100%);
-    min-height: 500px;
-
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* cards */
-
-.card{
-    transition: all 0.5s ease;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
-
